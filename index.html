@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador Sensor IoT - Cerveza PERUVIAM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<body>
+  <h1 class="animate__animated animate__fadeInDown">🍺 Simulador Sensor IoT - Cerveza PERUVIAM</h1>
+
+  <div class="sensor-box animate__animated animate__fadeInUp">
+    <div class="dato">🌡️ Temperatura: <span id="temp">--</span> °C</div>
+    <div class="dato">⚙️ Presión: <span id="presion">--</span> Pa</div>
+    <div class="dato">🧪 Composición: <span id="comp">--</span></div>
+    <div class="dato">🔴 Estado General: 
+      <span class="estado-indicador" id="estadoGeneral"></span>
+    </div>
+    <div id="alertas"></div>
+  </div>
+
+  <div class="config-box animate__animated animate__fadeInUp animate__delay-1s">
+    <h3>⚙️ Configurar Umbrales</h3>
+    <label>Temp Mín: <input type="number" id="tempMin" value="2"></label>
+    <label>Temp Máx: <input type="number" id="tempMax" value="10"></label><br><br>
+    <label>Presión Mín: <input type="number" id="presMin" value="98000"></label>
+    <label>Presión Máx: <input type="number" id="presMax" value="105000"></label>
+  </div>
+
+  <div class="chart-box animate__animated animate__fadeInUp animate__delay-2s">
+    <h2>📈 Monitor en Tiempo Real</h2>
+    <canvas id="graficoTiempoReal" height="200"></canvas>
+  </div>
+
+  <div class="historial-box animate__animated animate__fadeInUp animate__delay-3s">
+    <h2>📊 Historial de Datos</h2>
+    <button onclick="exportarExcel()">📥 Exportar Excel</button>
+    <table id="historial">
+      <thead>
+        <tr><th>Hora</th><th>Temperatura (°C)</th><th>Presión (Pa)</th><th>Composición</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="datos">Integrantes:</div>
+  <div class="datos">Sebatian Theran</div>
+  <div class="datos">Josué Yalta</div>
+
+  <script src="main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</body>
+</html>
